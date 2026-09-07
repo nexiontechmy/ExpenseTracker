@@ -1,13 +1,17 @@
 package com.expensetracker.app.ui.components
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.draw.clip
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -52,7 +56,7 @@ fun OverviewCard(
                 OverviewColumn(
                     label = "Spending",
                     value = formatAmount(currencySymbol, spending),
-                    color = ExpenseRed,
+                    dotColor = ExpenseRed,
                     modifier = Modifier.weight(1f)
                 )
                 VerticalDivider(
@@ -62,7 +66,7 @@ fun OverviewCard(
                 OverviewColumn(
                     label = "Income",
                     value = formatAmount(currencySymbol, income),
-                    color = IncomeGreen,
+                    dotColor = IncomeGreen,
                     modifier = Modifier.weight(1f)
                 )
             }
@@ -71,9 +75,26 @@ fun OverviewCard(
 }
 
 @Composable
-private fun OverviewColumn(label: String, value: String, color: Color, modifier: Modifier = Modifier) {
+private fun OverviewColumn(label: String, value: String, dotColor: Color, modifier: Modifier = Modifier) {
     Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
-        Text(label, style = MaterialTheme.typography.labelMedium, color = MaterialTheme.colorScheme.onPrimaryContainer)
-        Text(value, style = MaterialTheme.typography.titleMedium, color = color, fontWeight = FontWeight.SemiBold)
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Box(
+                modifier = Modifier
+                    .size(8.dp)
+                    .clip(CircleShape)
+                    .background(dotColor)
+            )
+            Text(
+                "  $label",
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.onPrimaryContainer
+            )
+        }
+        Text(
+            value,
+            style = MaterialTheme.typography.titleMedium,
+            color = MaterialTheme.colorScheme.onPrimaryContainer,
+            fontWeight = FontWeight.SemiBold
+        )
     }
 }

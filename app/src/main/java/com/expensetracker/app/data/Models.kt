@@ -2,6 +2,7 @@ package com.expensetracker.app.data
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.TrendingUp
 import androidx.compose.material.icons.filled.*
 import androidx.compose.ui.graphics.vector.ImageVector
 
@@ -31,7 +32,7 @@ object Categories {
     val SHOPEE = CategoryInfo("shopee", "Shopee Payment", Icons.Filled.ShoppingBag, Color(0xFFFF5252))
     val LOANS = CategoryInfo("loans", "Loans", Icons.Filled.AccountBalance, Color(0xFF8D6E63))
     val OTHERS = CategoryInfo("others", "Others", Icons.Filled.MoreHoriz, Color(0xFF78909C))
-    val INCOME = CategoryInfo("income", "Income", Icons.Filled.TrendingUp, Color(0xFF43A047))
+    val INCOME = CategoryInfo("income", "Income", Icons.AutoMirrored.Filled.TrendingUp, Color(0xFF43A047))
 
     val expenseCategories = listOf(
         BILLS, FOOD, GROCERY, HEALTH, PERSONAL_CARE, PETROL, SAVING, SHOPEE, LOANS, OTHERS

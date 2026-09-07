@@ -2,6 +2,23 @@
 
 A native Android app for tracking monthly household expenses — built with Kotlin and Jetpack Compose.
 
+## Screenshots
+
+<table>
+  <tr>
+    <td align="center"><img src="screenshots/home.png" width="220" alt="Home"><br><sub><b>Home</b></sub></td>
+    <td align="center"><img src="screenshots/history.png" width="220" alt="History"><br><sub><b>History</b></sub></td>
+    <td align="center"><img src="screenshots/trends.png" width="220" alt="Trends"><br><sub><b>Trends</b></sub></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="screenshots/settings.png" width="220" alt="Settings"><br><sub><b>Settings</b></sub></td>
+    <td align="center"><img src="screenshots/home-dark.png" width="220" alt="Dark mode"><br><sub><b>Dark mode</b></sub></td>
+    <td></td>
+  </tr>
+</table>
+
+<sub>Screenshots use sample data.</sub>
+
 ## Features
 
 - **Monthly overview** — net balance, spending, and income for the current month, with navigation to past and future months

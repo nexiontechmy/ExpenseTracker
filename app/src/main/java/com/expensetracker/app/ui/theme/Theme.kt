@@ -1,6 +1,5 @@
 package com.expensetracker.app.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -13,19 +12,65 @@ import androidx.compose.ui.platform.LocalContext
 import com.expensetracker.app.data.ThemeMode
 
 private val LightColors = lightColorScheme(
-    primary = GreenPrimary,
-    secondary = AmberSecondary,
+    primary = LightPrimary,
+    onPrimary = LightOnPrimary,
+    primaryContainer = LightPrimaryContainer,
+    onPrimaryContainer = LightOnPrimaryContainer,
+    secondary = LightSecondary,
+    onSecondary = LightOnSecondary,
+    secondaryContainer = LightSecondaryContainer,
+    onSecondaryContainer = LightOnSecondaryContainer,
+    tertiary = LightTertiary,
+    onTertiary = LightOnTertiary,
+    tertiaryContainer = LightTertiaryContainer,
+    onTertiaryContainer = LightOnTertiaryContainer,
     background = LightBackground,
+    onBackground = LightOnBackground,
     surface = LightSurface,
-    error = ExpenseRed
+    onSurface = LightOnSurface,
+    surfaceVariant = LightSurfaceVariant,
+    onSurfaceVariant = LightOnSurfaceVariant,
+    outline = LightOutline,
+    surfaceContainerLowest = LightSurfaceContainerLowest,
+    surfaceContainerLow = LightSurfaceContainerLow,
+    surfaceContainer = LightSurfaceContainer,
+    surfaceContainerHigh = LightSurfaceContainerHigh,
+    surfaceContainerHighest = LightSurfaceContainerHighest,
+    error = LightError,
+    onError = LightOnError,
+    errorContainer = LightErrorContainer,
+    onErrorContainer = LightOnErrorContainer
 )
 
 private val DarkColors = darkColorScheme(
-    primary = GreenPrimaryDark,
-    secondary = AmberSecondary,
+    primary = DarkPrimary,
+    onPrimary = DarkOnPrimary,
+    primaryContainer = DarkPrimaryContainer,
+    onPrimaryContainer = DarkOnPrimaryContainer,
+    secondary = DarkSecondary,
+    onSecondary = DarkOnSecondary,
+    secondaryContainer = DarkSecondaryContainer,
+    onSecondaryContainer = DarkOnSecondaryContainer,
+    tertiary = DarkTertiary,
+    onTertiary = DarkOnTertiary,
+    tertiaryContainer = DarkTertiaryContainer,
+    onTertiaryContainer = DarkOnTertiaryContainer,
     background = DarkBackground,
+    onBackground = DarkOnBackground,
     surface = DarkSurface,
-    error = ExpenseRed
+    onSurface = DarkOnSurface,
+    surfaceVariant = DarkSurfaceVariant,
+    onSurfaceVariant = DarkOnSurfaceVariant,
+    outline = DarkOutline,
+    surfaceContainerLowest = DarkSurfaceContainerLowest,
+    surfaceContainerLow = DarkSurfaceContainerLow,
+    surfaceContainer = DarkSurfaceContainer,
+    surfaceContainerHigh = DarkSurfaceContainerHigh,
+    surfaceContainerHighest = DarkSurfaceContainerHighest,
+    error = DarkError,
+    onError = DarkOnError,
+    errorContainer = DarkErrorContainer,
+    onErrorContainer = DarkOnErrorContainer
 )
 
 @Composable

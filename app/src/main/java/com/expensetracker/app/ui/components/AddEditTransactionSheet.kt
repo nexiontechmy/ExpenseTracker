@@ -9,6 +9,7 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
 import androidx.compose.material3.DatePicker
@@ -56,6 +57,7 @@ fun AddEditTransactionSheet(
     var dateMillis by remember { mutableStateOf(existing?.dateMillis ?: System.currentTimeMillis()) }
     var showDatePicker by remember { mutableStateOf(false) }
     var showError by remember { mutableStateOf(false) }
+    var confirmDelete by remember { mutableStateOf(false) }
 
     ModalBottomSheet(onDismissRequest = onDismiss, sheetState = sheetState) {
         Column(
@@ -146,7 +148,7 @@ fun AddEditTransactionSheet(
 
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 if (onDelete != null) {
-                    OutlinedButton(onClick = onDelete) {
+                    OutlinedButton(onClick = { confirmDelete = true }) {
                         Icon(Icons.Filled.Delete, contentDescription = null)
                         Text(" Delete")
                     }
@@ -167,6 +169,20 @@ fun AddEditTransactionSheet(
             }
             androidx.compose.foundation.layout.Spacer(Modifier.padding(top = 12.dp))
         }
+    }
+
+    if (confirmDelete && onDelete != null) {
+        AlertDialog(
+            onDismissRequest = { confirmDelete = false },
+            title = { Text("Delete transaction?") },
+            text = { Text("This can't be undone.") },
+            confirmButton = {
+                TextButton(onClick = { confirmDelete = false; onDelete() }) { Text("Delete") }
+            },
+            dismissButton = {
+                TextButton(onClick = { confirmDelete = false }) { Text("Cancel") }
+            }
+        )
     }
 
     if (showDatePicker) {

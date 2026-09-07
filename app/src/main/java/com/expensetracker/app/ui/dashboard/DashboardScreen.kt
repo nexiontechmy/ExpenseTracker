@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.Icon
@@ -28,6 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.expensetracker.app.data.TransactionEntity
+import com.expensetracker.app.data.TransactionType
 import com.expensetracker.app.ui.AppViewModel
 import com.expensetracker.app.ui.components.AddEditTransactionSheet
 import com.expensetracker.app.ui.components.MonthSelector
@@ -59,7 +59,7 @@ fun DashboardScreen(viewModel: AppViewModel) {
     ) { padding ->
         LazyColumn(
             modifier = Modifier.fillMaxSize().padding(padding),
-            contentPadding = PaddingValues(16.dp),
+            contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 96.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
             item {
@@ -100,7 +100,7 @@ fun DashboardScreen(viewModel: AppViewModel) {
                     TransactionListItem(
                         transaction = t,
                         currencySymbol = currency,
-                        isLargeAmount = t.amount >= threshold,
+                        isLargeAmount = t.type == TransactionType.EXPENSE && t.amount >= threshold,
                         onClick = { editing = t }
                     )
                 }

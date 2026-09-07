@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import com.expensetracker.app.data.Categories
 import com.expensetracker.app.data.Payer
 import com.expensetracker.app.data.TransactionEntity
+import com.expensetracker.app.data.TransactionType
 import com.expensetracker.app.ui.AppViewModel
 import com.expensetracker.app.ui.components.AddEditTransactionSheet
 import com.expensetracker.app.ui.components.TransactionListItem
@@ -69,7 +70,7 @@ fun TransactionsScreen(viewModel: AppViewModel) {
     ) { padding ->
         LazyColumn(
             modifier = Modifier.fillMaxSize().padding(padding),
-            contentPadding = PaddingValues(16.dp)
+            contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 16.dp, bottom = 96.dp)
         ) {
             item {
                 Text("History", style = MaterialTheme.typography.titleLarge, modifier = Modifier.padding(bottom = 12.dp))
@@ -120,7 +121,7 @@ fun TransactionsScreen(viewModel: AppViewModel) {
                         TransactionListItem(
                             transaction = t,
                             currencySymbol = currency,
-                            isLargeAmount = t.amount >= threshold,
+                            isLargeAmount = t.type == TransactionType.EXPENSE && t.amount >= threshold,
                             onClick = { editing = t },
                             modifier = Modifier.padding(bottom = 8.dp)
                         )
